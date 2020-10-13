@@ -1,0 +1,72 @@
+{% extends 'admindash/base.html' %}
+
+{% block content %}
+<div class="card mx-4 my-4" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{resturant.slno}}.&nbsp;{{resturant.name}}</h5>
+      <h6 class="card-subtitle mt-1">{{resturant.rmn}}</h6>
+      <h6 class="card-subtitle mt-1">{{resturant.address}}</h6>
+      <h6 class="card-subtitle mt-1">{{resturant.email}}</h6>
+      <a href="#" class="btn btn-outline-primary mt-2">Update</a>
+      
+    </div>
+  </div>
+
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+<div class="mr-2">
+    <h5>Booked Table</h5>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Customer</th>  
+        <th scope="col">Table</th>
+        <th scope="col">Status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for i in torders %}
+      <tr>
+        <td>{{i.customer}}</td>  
+        <td>{{i.tables}}</td>
+        <td>{{i.status}}</td>
+        
+      </tr>
+    {% endfor %} 
+    </tbody>
+  </table>
+</div>
+
+
+<div class="ml-2">
+    <h5>Take Away Orders</h5>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">customer</th>
+        <th scope="col">Dish</th>
+        <th scope="col">Orderby</th>
+        <th scope="col">Status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    
+      {% for i in porders %}
+      <tr>
+        <td>{{i.customer}}</td>
+        <td>{{i.dish}}</td>
+        <td>{{i.orderby}}</td>
+        <td>{{i.status}}</td>
+        
+      </tr>
+    {% endfor %} 
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+{% endblock %}

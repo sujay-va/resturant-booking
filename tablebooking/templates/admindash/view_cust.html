@@ -1,0 +1,70 @@
+{% extends 'admindash/base.html' %}
+
+{% block content %}
+<div class="card mx-4 my-4" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{customers.slno}}.&nbsp;{{customers.name}}</h5>
+      <h6 class="card-subtitle mt-1">{{customers.rmn}}</h6>
+      <h6 class="card-subtitle mt-1">{{customers.address}}</h6>
+      <h6 class="card-subtitle mt-1">{{customers.email}}</h6>
+      <a href="#" class="btn btn-outline-primary mt-2">Update</a>
+      
+    </div>
+  </div>
+
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+<div class="ml-1">
+    <h5>Booked Table</h5>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Table and Resturant</th>
+        <th scope="col">Status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for i in torders %}
+      <tr>
+        <td>{{i.tables}}</td>
+        <td>{{i.status}}</td>
+        
+      </tr>
+    {% endfor %} 
+    </tbody>
+  </table>
+</div>
+
+
+<div class="ml-2 mr-2">
+    <h5>Take Away Orders</h5>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Resturant</th>
+        <th scope="col">Dish</th>
+        <th scope="col">Orderby</th>
+        <th scope="col">Status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    
+      {% for i in porders %}
+      <tr>
+        <td>{{i.restaurant}}</td>
+        <td>{{i.dish}}</td>
+        <td>{{i.orderby}}</td>
+        <td>{{i.status}}</td>
+        
+      </tr>
+    {% endfor %} 
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+{% endblock %}

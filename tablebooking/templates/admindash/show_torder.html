@@ -1,0 +1,38 @@
+{% extends 'admindash/base.html' %}
+
+{% block content %}
+
+
+<div class="container mt-4">
+    <h4>Total Table Orders</h4>
+</div>
+
+<div class="contanier mx-4 my-4">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Show</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Table No</th>
+        <th scope="col">Status</th>
+        
+        
+
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for i in tord %}
+        <tr>
+          <td><a class="btn btn-primary btn-sm" href="">View</a></td>
+          <td>{{i.customer}}</td>
+          <td>{{i.tables}}</td>
+          <td>{{i.status}}</td>
+          
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

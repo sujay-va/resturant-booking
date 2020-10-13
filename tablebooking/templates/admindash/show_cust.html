@@ -1,0 +1,44 @@
+{% extends 'admindash/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h4>Total Customers</h4>
+</div>
+<div class="contanier mx-4 my-4">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Show</th>
+        <th scope="col">Sl-No</th>
+        <th scope="col">Name</th>
+        <th scope="col">RMN</th>
+        <th scope="col">Address</th>
+        <th scope="col">Email</th>
+        
+        
+
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for i in cust %}
+        <tr>
+          <td><a class="btn btn-primary btn-sm" href="{% url 'view_cust' i.id %}">View</a></td>
+          <td>{{i.slno}}</td>
+          <td>{{i.name}}</td>
+          <td>{{i.rmn}}</td>
+          <td>{{i.address}}</td>
+          <td>{{i.email}}</td>
+          
+        </tr>
+      {% endfor %}
+      
+
+
+     
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}
